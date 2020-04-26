@@ -21,7 +21,9 @@ class PlayGround extends React.Component {
 
     return <Box 
               boxNum={currBoxNum}
-              style={this.dims[currBoxNum]}>
+              style={this.dims[currBoxNum]}
+              pos={this.initialPos[(this.currBoxNum -1) || 0]}
+              >
                 {this.getChildBox(currBoxNum + 1, totalBoxes)}
             </Box>
   }
@@ -35,6 +37,13 @@ class PlayGround extends React.Component {
       height: this.dims[0].height + 75,
       width: this.dims[0].width + 75
     })
+
+    var pos = document.getElementsByClassName('dragThis')[0].getBoundingClientRect()
+
+    this.initialPos.unshift({
+      x : pos.x,
+      y : pos.y
+    })
   };
 
   dims = [
@@ -44,12 +53,17 @@ class PlayGround extends React.Component {
     },
   ]
 
+  initialPos = [
+  ]
+
   render () {
     return (
       <div id="playground">
         <Box 
-          style={this.dims[(this.currBoxNum -1) || 0 ]} 
-          boxNum={this.currBoxNum}>
+          style={this.dims[(this.currBoxNum) || 0 ]} 
+          boxNum={this.currBoxNum}
+          pos = {this.initialPos[(this.currBoxNum) || 0]}
+          >
           {this.getChildBox(1, this.state.boxes)}
         </Box>
         <AddParentButton clickHandler={this.createBox}/>
