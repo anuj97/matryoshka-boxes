@@ -4,7 +4,7 @@
 
 Clone the repo and run the following commands:
 
-`cd morphleassign`
+`cd react-create-containment`
 
 `npm install`
 
