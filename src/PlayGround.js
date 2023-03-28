@@ -1,5 +1,4 @@
 import React from "react";
-import Draggable from "react-draggable";
 import "./PlayGround.css";
 import Box from "./components/Box.js";
 import AddParentButton from "./components/AddParentButton.js";
@@ -39,7 +38,6 @@ class PlayGround extends React.Component {
     });
 
     const elements = document.getElementsByClassName("dragThis");
-    var pos = elements[0].getBoundingClientRect();
     const eles = [].slice.call(elements).map((ele) => {
       // debugger;
       const p = ele.getBoundingClientRect();

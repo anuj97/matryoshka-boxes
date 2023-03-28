@@ -1,5 +1,4 @@
 import React from "react";
-import Draggable from "react-draggable";
 
 class AddParentButton extends React.Component {
   render() {
